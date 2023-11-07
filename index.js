@@ -47,7 +47,6 @@ app.post('/games', (req,res) => {
         .send(game)
 })
 
-
 app.delete('/games/:id', (req,res) => {
     if(typeof games[req.params.id - 1] === 'undefined') {
         return res.status(404).send({error: "Game not found"})
