@@ -76,6 +76,14 @@ paths:
         get:
             tags:
                 - details
+            parameters:
+                -
+                    name: id
+                    description: id
+                    schema:
+                        type: integer
+                    in: path
+                    required: true
             responses:
                 '200':
                     content:
@@ -84,7 +92,7 @@ paths:
                                 type: string
                             examples:
                                 Full details of a game:
-                                    value: "{id: 1, name: \"Witcher 3\", price: 29.99},\r\n{id: 2, name: \"Cyberpunk 2077\", price: 59.99},\r\n{id: 3, name: \"Minecraft\", price: 26.99},\r\n{id: 4, name: \"Counter-Strike: Global Offensive\", price: 0},\r\n{id: 5, name: \"Roblox\", price: 0},\r\n{id: 6, name: \"Grand Theft Auto V\", price: 29.99},\r\n{id: 7, name: \"Valorant\", price: 0},\r\n{id: 8, name: \"Forza Horizon 5\", price: 59.99}"
+                                    value: "{id:1, name:\"Witcher 3\", price:29.99},\r\n{id:2, name:\"Cyberpunk 2077\", price:59.99},\r\n{id:3, name:\"Minecraft\", price:26.99},\r\n{id:4, name:\"Counter-Strike: Global Offensive\", price:0},\r\n{id:5, name:\"Roblox\", price:0},\r\n{id:6, name:\"Grand Theft Auto V\", price:29.99},\r\n{id:7, name:\"Valorant\", price:0},\r\n{id:8, name:\"Forza Horizon 5\", price:59.99}"
                     description: Full details of a given game
                 '204':
                     description: no content
@@ -98,6 +106,14 @@ paths:
         delete:
             tags:
                 - delete-game
+            parameters:
+                -
+                    name: id
+                    description: id
+                    schema:
+                        type: integer
+                    in: path
+                    required: true
             responses:
                 '200':
                     content:
@@ -114,6 +130,7 @@ paths:
                     content:
                         error: {}
                     description: error
+            operationId: id
             summary: Deletes game
             description: Delete a game
 components:

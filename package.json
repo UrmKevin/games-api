@@ -1,7 +1,6 @@
 {
   "name": "games-api",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +15,17 @@
     "swagger-ui-express": "^5.0.0",
     "vue": "^3.3.10",
     "yamljs": "^0.3.0"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrmKevin/games-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/UrmKevin/games-api/issues"
+  },
+  "homepage": "https://github.com/UrmKevin/games-api#readme",
+  "description": ""
 }

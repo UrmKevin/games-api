@@ -1,12 +1,20 @@
 const express = require('express')
+<<<<<<< HEAD
 const cors = require('cors')
+=======
+// const cors = require('cors')
+>>>>>>> 8eea68d4bbd4e9a229cdb6f80c256bf64096e404
 const app = express()
 const port = 8080
 const swaggerUi = require('swagger-ui-express')
 const yamljs =require('yamljs')
 const swaggerDocument = yamljs.load('./docs/swagger.yaml');
+<<<<<<< HEAD
 
 app.use(cors())
+=======
+// app.use(cors)
+>>>>>>> 8eea68d4bbd4e9a229cdb6f80c256bf64096e404
 app.use(express.json())
 
 const games = [
@@ -25,13 +33,11 @@ app.get('/games', (req,res) => {
 })
 
 app.get('/games/:id', (req,res) => {
-    res.send(games[req.params.id])
+    if(typeof games [req.params.id - 1] === 'undefined'){
+        return res.status(404).send({error: "Game not found"})
+    }
+    res.send(games[req.params.id - 1])
 })
-
-function getBaseUrl(req){
-    return req.connection && req.connection.encrypted
-        ? 'https' : 'http' + `://${req.headers.host}`
-}
 
 app.post('/games', (req,res) => {
     if (!req.body.name || !req.body.price){
@@ -46,7 +52,7 @@ app.post('/games', (req,res) => {
 
     res.status(201)
         .location(`$ {getBaseUrl(req)}/games/${games.lenght}`)
-        ,send(game)
+        .send(game)
 })
 
 app.delete('/games/:id', (req,res) => {
@@ -64,3 +70,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.listen(port, () => {
     console.log(`API up at: http://localhost:${port}`)
 })
+
+function getBaseUrl(req){
+    return req.connection && req.connection.encrypted
+        ? 'https' : 'http' + `://${req.headers.host}`
+}
